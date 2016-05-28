@@ -19,6 +19,7 @@ public class FXthreadsView {
 	protected double x, y;
 	
 	protected Label lblx;
+	protected Label lbly;
 
 	protected FXthreadsView(Stage stage, FXthreadsModel model) {
 		this.stage = stage;
@@ -29,16 +30,20 @@ public class FXthreadsView {
 		GridPane root = new GridPane();
 		
 		lblx = new Label();
-		lblx.setText(Integer.toString(model.getValue().get()));
+		lblx.setText("X = " + Double.toString(model.getValue().get()));
 		root.add(lblx, 0, 0);
 		
+		lbly = new Label();
+		lbly.setText("Y = " + Double.toString(model.getValue().get()));
+		root.add(lbly, 0, 1);
+		
 		lblNumber = new Label();
-		lblNumber.setText(Integer.toString(model.getValue().get()));
-		root.add(lblNumber, 0, 1);
+		lblNumber.setText("Anzahl Versuche = " + Integer.toString(model.getValue().get()));
+		root.add(lblNumber, 0, 2);
 		
 		btnClick = new Button();
 		btnClick.setText("Berechnung starten/stoppen");
-		root.add(btnClick, 0, 2);
+		root.add(btnClick, 0, 3);
 		
 		xAxis = new NumberAxis(0, 1, 0.01);
 		yAxis = new NumberAxis(0, 1, 0.01);
@@ -46,7 +51,7 @@ public class FXthreadsView {
 		xAxis.setLabel("X");
 		yAxis.setLabel("Y");
 		sc.setTitle("Kreisviertel");
-		root.add(sc, 0, 3);
+		root.add(sc, 0, 4);
 		
 		XYChart.Series series1 = new XYChart.Series();
 		series1.setName("innerhalb");

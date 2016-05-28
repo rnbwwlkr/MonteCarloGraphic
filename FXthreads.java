@@ -16,12 +16,12 @@ public class FXthreads extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) {
-		// Initialize the GUI
+		// Initialisierung des GUI
 		model = new FXthreadsModel();
 		view = new FXthreadsView(primaryStage, model);
 		controller = new FXthreadsController(model, view);
 
-		// Display the GUI after all initialization is complete
+		// GUI darstellen nachdem die Initialisierung abgeschlossen ist
 		view.start();
 	}
 
