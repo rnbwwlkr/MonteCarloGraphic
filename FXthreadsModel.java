@@ -14,7 +14,7 @@ import javafx.scene.chart.XYChart;
 
 public class FXthreadsModel {
     private SimpleIntegerProperty value;
-    private SimpleDoubleProperty valueTrue;
+    private SimpleIntegerProperty valueTrue;
     private SimpleIntegerProperty valueFalse;
     private SimpleDoubleProperty lblPi;
     private SimpleDoubleProperty lblx;
@@ -26,7 +26,7 @@ public class FXthreadsModel {
 
     protected FXthreadsModel() {
         value = new SimpleIntegerProperty(0);
-        valueTrue = new SimpleDoubleProperty(0);
+        valueTrue = new SimpleIntegerProperty(0);
         valueFalse = new SimpleIntegerProperty(0);
         lblPi = new SimpleDoubleProperty(0);
         lblx = new SimpleDoubleProperty(0);
@@ -51,7 +51,7 @@ public class FXthreadsModel {
         return value;
     }
     
-    public SimpleDoubleProperty getValueTrue(){
+    public SimpleIntegerProperty getValueTrue(){
         return valueTrue;
     }
     
@@ -134,7 +134,7 @@ public class FXthreadsModel {
                 }
                 
                 // Schätzung von pi
-                final double pi = (valueTrue.get()/value.get())*4;
+                final double pi = ((double)valueTrue.get()/value.get())*4;
                 
                 // Setze Pi ins Label für GUI
                 lblPi.set(pi);
