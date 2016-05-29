@@ -82,6 +82,14 @@ public class FXthreadsView {
 
 		series2 = new XYChart.Series();
 		series2.setName("ausserhalb");
+
+		/* Mit Hilfe der nachfolgenden 2 Zeilen erstelle ich Initial-Werte im Koordinatensystem
+		 * welche ausserhalb des sichtbaren Feldes liegen. Ansonsten würden die Symbole in
+		 * der Legende nicht angezeigt. Details siehe hier:
+		 * http://stackoverflow.com/questions/30171290/javafx-scatterchart-does-not-display-legend-symbol-when-initialized-with-empty-d
+		 * */ 
+		series1.getData().add(new XYChart.Data<>(-1,-1));
+		series2.getData().add(new XYChart.Data<>(2,2));
 		
 		scatterChart.getData().addAll(series1,series2);
 
