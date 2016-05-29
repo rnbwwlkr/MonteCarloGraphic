@@ -1,0 +1,55 @@
+/*.label {
+  -fx-font-size: 24px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
+  -fx-text-fill: #008080;
+  -fx-border-insets: 5px;
+  -fx-border-color: black;
+  -fx-border-width: 2px;
+  -fx-min-width: 200;
+  -fx-alignment: center;
+  -fx-text-alignment: center;
+}
+
+.button {
+  -fx-font-size: 16px;
+  -fx-font-weight: bold;
+  -fx-font-style: italic;
+  -fx-text-fill: #000000;
+  -fx-min-width: 200;
+}*/
+VBox {
+	-fx-background-color: #1d87e4;
+}
+/* Custom Label Formatting*/
+#lblNumber, #x, #y, #lblNumberTrue, #lblNumberFalse {
+	-fx-text-fill: #ffffff;
+}
+#lblNumber {
+	-fx-border-color: #ffffff;
+	-fx-border-width: 0 0 5 0;
+	-fx-border-insets: 0 0 1 0;
+}
+#lblNumberTrue {
+	-fx-border-color: #4caf50;
+	-fx-border-width: 0 0 5 0;
+	-fx-border-insets: 0 0 1 0;
+}
+#lblNumberFalse {
+	-fx-border-color: #e53935;
+	-fx-border-width: 0 0 5 0;
+	-fx-border-insets: 0 0 1 0;
+}
+/* Custom chart symbols */
+.chart-symbol {
+	-fx-background-color: #f9d900;
+	-fx-background-radius: 5px;
+	-fx-padding: 5px;
+}
+/* Custom colors for the chart series */
+.default-color0.chart-symbol {
+	-fx-background-color: #4caf50;
+}
+.default-color1.chart-symbol {
+	-fx-background-color: #e53935;
+}
