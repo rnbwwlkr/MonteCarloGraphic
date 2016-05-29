@@ -16,7 +16,6 @@ public class FXthreadsView {
 	protected Label lblNumber;
 	protected Label lblNumberTrue;
 	protected Label lblNumberFalse;
-	protected Label lblStartStop;
 	protected Button btnClick;
 
 	ScatterChart<Number,Number> scatterChart;

@@ -1,8 +1,5 @@
 import javafx.application.Platform;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.concurrent.Task;
+import javafx.beans.property.*;
 import javafx.scene.chart.XYChart;
 
 public class FXthreadsModel {
@@ -11,7 +8,6 @@ public class FXthreadsModel {
     private SimpleIntegerProperty valueFalse;
     private SimpleDoubleProperty lblx;
     private SimpleDoubleProperty lbly;
-    private SimpleStringProperty lblStartStop;
 
     private volatile boolean stop = true;
 
@@ -24,7 +20,13 @@ public class FXthreadsModel {
         valueFalse = new SimpleIntegerProperty(0);
         lblx = new SimpleDoubleProperty(0);
         lbly = new SimpleDoubleProperty(0);
-        lblStartStop = new SimpleStringProperty();
+        stop.addListener(change -> {
+            if (stop.get()) {
+                view.btnClick.textProperty().set("Berechnung weiterführen");
+            } else {
+                view.btnClick.textProperty().set("Berechnung pausieren");
+            }
+        });
     }
 
     public void setView(FXthreadsView view) {
@@ -51,10 +53,6 @@ public class FXthreadsModel {
     	return lbly;
     }
     
-    public SimpleStringProperty getStringStartStop() {
-    	return lblStartStop;
-    }
-    
     public void startStop() {
         if (ourTaskThread == null) {
             OurTask task = new OurTask();
@@ -75,20 +73,16 @@ public class FXthreadsModel {
         protected Void call() throws Exception {
             while (!stop) {
             	final double x = Math.random();
-//            	System.out.print("x = " + x + " and ");
             	final double y = Math.random();
-//            	System.out.println("y = " + y);
                 value.set(value.get()+1);
                 lblx.set(x);
                 lbly.set(y);
                 if(x * x + y * y <1){
                     Platform.runLater(() -> view.series1.getData().add(new XYChart.Data(x, y)));
                     valueTrue.set(valueTrue.get()+1);
-//                	System.out.println("YES");
                 } else {
                     Platform.runLater(() -> view.series2.getData().add(new XYChart.Data(x, y)));
                     valueFalse.set(valueFalse.get()+1);
-//                	System.out.println("NO");
                 }
                 try {
                     Thread.sleep(10);

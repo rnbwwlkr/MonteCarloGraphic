@@ -17,10 +17,10 @@ public class FXthreadsController {
             updateGUIvalue((Integer) newValue);
         });
         model.getValueTrue().addListener((observable, oldValue, newValue) -> {
-        	updateGUIvalueTrue((Integer) newValue);
+            updateGUIvalueTrue((Integer) newValue);
         });
         model.getValueFalse().addListener((observable, oldValue, newValue) -> {
-        	updateGUIvalueFalse((Integer) newValue);
+            updateGUIvalueFalse((Integer) newValue);
         });
         
         model.getValuelblx().addListener((observable, oldValue, newValue) -> {
@@ -28,7 +28,7 @@ public class FXthreadsController {
         });
         
         model.getValuelbly().addListener((observable, oldValue, newValue) -> {
-        	updateGUIY((Double) newValue);
+            updateGUIY((Double) newValue);
         });
 
         // register ourselves to listen for button clicks
@@ -64,27 +64,20 @@ public class FXthreadsController {
     }
     // Aktualisiert das Lbel mit der Anz. Punkte ausserhalb (GUI)
     private void updateGUIvalueFalse(int newValue) {
-    	Platform.runLater(() -> {
-    		view.lblNumberFalse.setText("Anz. Punkte ausserhalb = " + Integer.toString((Integer) newValue));
-    	});
+        Platform.runLater(() -> {
+            view.lblNumberFalse.setText("Anz. Punkte ausserhalb = " + Integer.toString((Integer) newValue));
+        });
     }
     // Aktualisiert die X-Koordinate im Label des GUI
     private void updateGUIX(Double newValue) {
-    	Platform.runLater(() -> {
-    		view.lblx.setText("X = " + Double.toString((Double) newValue));
-    	});
+        Platform.runLater(() -> {
+            view.lblx.setText("X = " + Double.toString((Double) newValue));
+        });
     }
     // Aktualisiert die Y-Koordinate im Label des GUI
     private void updateGUIY(Double newValue) {
-    	Platform.runLater(() -> {
-    		view.lbly.setText("Y = " + Double.toString((Double) newValue));
-    	});
-    }
-    // Aktualisiert die Beschriftung des StartStop-Buttons
-    private void updateGUIstartStop(String newValue) {
-    	Platform.runLater(() -> {
-    		view.lblStartStop.setText("Berechnung " + newValue);
-    	});
-    }
-    
+        Platform.runLater(() -> {
+            view.lbly.setText("Y = " + Double.toString((Double) newValue));
+        });
+    }    
 }
