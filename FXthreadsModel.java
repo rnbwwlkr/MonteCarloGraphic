@@ -36,23 +36,23 @@ public class FXthreadsModel {
     }
     
     public SimpleIntegerProperty getValueTrue(){
-        return valueTrue;
+    	return valueTrue;
     }
     
     public SimpleIntegerProperty getValueFalse() {
-        return valueFalse;
+    	return valueFalse;
     }
     
     public SimpleDoubleProperty getValuelblx() {
-        return lblx;
+    	return lblx;
     }
     
     public SimpleDoubleProperty getValuelbly() {
-        return lbly;
+    	return lbly;
     }
     
     public SimpleStringProperty getStringStartStop() {
-        return lblStartStop;
+    	return lblStartStop;
     }
     
     public void startStop() {
@@ -74,21 +74,21 @@ public class FXthreadsModel {
         @Override
         protected Void call() throws Exception {
             while (!stop) {
-                final double x = Math.random();
-//              System.out.print("x = " + x + " and ");
-                final double y = Math.random();
-//              System.out.println("y = " + y);
+            	final double x = Math.random();
+//            	System.out.print("x = " + x + " and ");
+            	final double y = Math.random();
+//            	System.out.println("y = " + y);
                 value.set(value.get()+1);
                 lblx.set(x);
                 lbly.set(y);
                 if(x * x + y * y <1){
                     Platform.runLater(() -> view.series1.getData().add(new XYChart.Data(x, y)));
                     valueTrue.set(valueTrue.get()+1);
-//                  System.out.println("YES");
+//                	System.out.println("YES");
                 } else {
                     Platform.runLater(() -> view.series2.getData().add(new XYChart.Data(x, y)));
                     valueFalse.set(valueFalse.get()+1);
-//                  System.out.println("NO");
+//                	System.out.println("NO");
                 }
                 try {
                     Thread.sleep(10);
