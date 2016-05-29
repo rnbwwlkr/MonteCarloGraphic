@@ -14,7 +14,7 @@ import javafx.scene.chart.XYChart;
 
 public class FXthreadsModel {
     private SimpleIntegerProperty value;
-    private SimpleIntegerProperty valueTrue;
+    private SimpleDoubleProperty valueTrue;
     private SimpleIntegerProperty valueFalse;
     private SimpleDoubleProperty lblPi;
     private SimpleDoubleProperty lblx;
@@ -26,7 +26,7 @@ public class FXthreadsModel {
 
     protected FXthreadsModel() {
         value = new SimpleIntegerProperty(0);
-        valueTrue = new SimpleIntegerProperty(0);
+        valueTrue = new SimpleDoubleProperty(0);
         valueFalse = new SimpleIntegerProperty(0);
         lblPi = new SimpleDoubleProperty(0);
         lblx = new SimpleDoubleProperty(0);
@@ -51,7 +51,7 @@ public class FXthreadsModel {
         return value;
     }
     
-    public SimpleIntegerProperty getValueTrue(){
+    public SimpleDoubleProperty getValueTrue(){
         return valueTrue;
     }
     
@@ -75,7 +75,7 @@ public class FXthreadsModel {
         return value.get();
     }
 
-    public final int getValueValueTrue() {
+    public final double getValueValueTrue() {
         return valueTrue.get();
     }
     

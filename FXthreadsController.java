@@ -17,7 +17,7 @@ public class FXthreadsController {
             updateGUIvalue((Integer) newValue);
         });
         model.getValueTrue().addListener((observable, oldValue, newValue) -> {
-            updateGUIvalueTrue((Integer) newValue);
+            updateGUIvalueTrue((Double) newValue);
         });
         model.getValueFalse().addListener((observable, oldValue, newValue) -> {
             updateGUIvalueFalse((Integer) newValue);
@@ -61,9 +61,9 @@ public class FXthreadsController {
         });
     }
     // Aktualisiert das Label mit der Anz. Punkte innerhalb (GUI)
-    private void updateGUIvalueTrue(int newValue) {
+    private void updateGUIvalueTrue(double newValue) {
         Platform.runLater(() -> {
-            view.lblNumberTrue.setText("Anz. Punkte innerhalb = " + Integer.toString((Integer) newValue));
+            view.lblNumberTrue.setText("Anz. Punkte innerhalb = " + Double.toString((Double) newValue));
         });
     }
     // Aktualisiert das Lbel mit der Anz. Punkte ausserhalb (GUI)
