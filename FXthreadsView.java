@@ -16,6 +16,8 @@ public class FXthreadsView {
 	protected Label lblNumber;
 	protected Label lblNumberTrue;
 	protected Label lblNumberFalse;
+	protected Label lblPi;
+	protected Label lblText;
 	protected Button btnClick;
 
 	ScatterChart<Number,Number> scatterChart;
@@ -24,7 +26,7 @@ public class FXthreadsView {
 	XYChart.Series series1;
 	XYChart.Series series2;
 
-	protected double x, y;
+	protected double x, y, pi;
 	
 	protected Label lblx;
 	protected Label lbly;
@@ -60,12 +62,20 @@ public class FXthreadsView {
 		lblNumberFalse.setText("Anz. Punkte ausserhalb = " + Integer.toString(model.getValue().get()));
 		lblNumberFalse.setId("lblNumberFalse");
 		
+		lblPi = new Label();
+		lblPi.setText("Aktuelle Schätzung von \u03C0 = " + Double.toString(model.getValue().get()));
+		lblPi.setId("lblPi");
+		
+		lblText = new Label();
+		lblText.setText("Letzte zufällig generierte Koordinaten:");
+		lblText.setId("lblText");
+		
 		btnClick = new Button();
 		btnClick.setText("Berechnung starten");
 		btnClick.setId("btnClick");
 		
 		vbox.setSpacing(10);
-		vbox.getChildren().addAll(btnClick, lblx, lbly, lblNumber, lblNumberTrue, lblNumberFalse);
+		vbox.getChildren().addAll(btnClick, lblText, lblx, lbly, lblNumber, lblNumberTrue, lblNumberFalse, lblPi);
 		vbox.setPadding(new Insets(100, 50, 10, 50));
 		vbox.setMinWidth(400);
 		
@@ -79,10 +89,10 @@ public class FXthreadsView {
 		
 		series1 = new XYChart.Series();
 		series1.setName("innerhalb");
-
+		
 		series2 = new XYChart.Series();
 		series2.setName("ausserhalb");
-
+		
 		/* Mit Hilfe der nachfolgenden 2 Zeilen erstelle ich Initial-Werte im Koordinatensystem
 		 * welche ausserhalb des sichtbaren Feldes liegen. Ansonsten würden die Symbole in
 		 * der Legende nicht angezeigt. Details siehe hier:

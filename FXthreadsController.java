@@ -30,6 +30,10 @@ public class FXthreadsController {
         model.getValuelbly().addListener((observable, oldValue, newValue) -> {
             updateGUIY((Double) newValue);
         });
+        
+        model.getValuelblPi().addListener((observable, oldValue, newValue) -> {
+            updateGUIpi((Double) newValue);
+        });
 
         // register ourselves to listen for button clicks
         view.btnClick.setOnAction(new EventHandler<ActionEvent>() {
@@ -79,5 +83,12 @@ public class FXthreadsController {
         Platform.runLater(() -> {
             view.lbly.setText("Y = " + Double.toString((Double) newValue));
         });
-    }    
+    }
+    // Aktualisiert den geschätzten Wert von Pi im GUI
+    private void updateGUIpi(Double newValue) {
+        Platform.runLater(() -> {
+            view.lblPi.setText("Aktuelle Schätzung von \u03C0 = " + Double.toString((Double) newValue));
+        });
+    }
+    
 }
