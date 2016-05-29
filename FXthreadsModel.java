@@ -134,7 +134,7 @@ public class FXthreadsModel {
                 }
                 
                 // Schätzung von pi
-                final double pi = (valueTrue.get()/value.get());
+                final double pi = (valueTrue.get()/value.get())*4;
                 
                 // Setze Pi ins Label für GUI
                 lblPi.set(pi);
