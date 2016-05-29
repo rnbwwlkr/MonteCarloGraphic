@@ -1,13 +1,3 @@
-/*
- * Code-Framework verwendet von Bradley Richards,
- * jedoch Threads mit Runnable ausgetauscht, da kein Ergebnis vom Thread erwartet wird. 
- * URL: https://moodle.fhnw.ch/course/view.php?id=12867
- * Threads > lecture09_threads > JavaFX_threads
- * Verwendete Ressourcen: http://docs.oracle.com/javafx/2/charts/scatter-chart.htm
- * Unterstützung/Hints durch Raphael Lückl
- * 
- * */
-
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.scene.chart.XYChart;
@@ -33,7 +23,7 @@ public class FXthreadsModel {
         lbly = new SimpleDoubleProperty(0);
         stop = new SimpleBooleanProperty(true);
         
-        // Code-Zeilen 34-40: Hilfe von Raphael Lückl
+        // Code-Zeilen 27-33: Hilfe von Raphael Lückl
         stop.addListener(change -> {
             if (stop.get()) {
                 view.btnClick.textProperty().set("Berechnung weiterführen");
@@ -74,7 +64,8 @@ public class FXthreadsModel {
     public final int getValueValue() {
         return value.get();
     }
-
+    /* zusätzlicher getter welcher mir ein double mit dem Wert von valueTrue zurückgibt
+     * ich benötige double für die Berechnung von PI (auch wenn Zahl INT ist) siehe Code-Zeile 130*/
     public final double getValueValueTrue() {
         return valueTrue.get();
     }
@@ -118,7 +109,7 @@ public class FXthreadsModel {
                 // Überprüfung ob Zufallskoordinate innerhalb oder ausserhalb des Kreisviertels
                 if(x * x + y * y <1){
                     
-                    // Code-Zeile 104 + 111: Hint mit Platform.runLater() innerhalb des IFs von Raphael Lückl
+                    // Code-Zeile 114 + 121: Hint mit Platform.runLater() innerhalb des IFs von Raphael Lückl
                     // XYChart.Data verwendet wie beschrieben bei http://docs.oracle.com/javafx/2/charts/scatter-chart.htm
                     Platform.runLater(() -> view.series1.getData().add(new XYChart.Data(x, y)));
                     
@@ -133,7 +124,9 @@ public class FXthreadsModel {
                     valueFalse.set(valueFalse.get()+1);
                 }
                 
-                // Schätzung von pi
+                /* Schätzung von pi
+                 * valueTrue muss ich casten, weil int/int kein double ausgibt,
+                 * aber double/int schon.*/
                 final double pi = ((double)valueTrue.get()/value.get())*4;
                 
                 // Setze Pi ins Label für GUI

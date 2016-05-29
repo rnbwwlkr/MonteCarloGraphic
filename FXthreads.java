@@ -1,3 +1,15 @@
+/*
+ * MVC-Framework verwendet von Bradley Richards,
+ * jedoch Threads mit Runnable ausgetauscht, da kein Ergebnis vom Thread erwartet wird. 
+ * URL: https://moodle.fhnw.ch/course/view.php?id=12867
+ * Threads > lecture09_threads > JavaFX_threads
+ * 
+ * Verwendete Ressourcen: http://docs.oracle.com/javafx/2/charts/scatter-chart.htm
+ * 
+ * Unterstützung/Hints durch Raphael Lückl
+ * 
+ * */
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
