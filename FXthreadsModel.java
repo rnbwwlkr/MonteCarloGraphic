@@ -26,7 +26,7 @@ public class FXthreadsModel {
         // Code-Zeilen 27-33: Hilfe von Raphael Lückl
         stop.addListener(change -> {
             if (stop.get()) {
-                view.btnClick.textProperty().set("Berechnung weiterführen");
+                view.btnClick.textProperty().set("Berechnung weiterf\u00fchren");
             } else {
                 view.btnClick.textProperty().set("Berechnung pausieren");
             }

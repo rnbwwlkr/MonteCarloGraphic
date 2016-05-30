@@ -87,7 +87,7 @@ public class FXthreadsController {
     // Aktualisiert den geschätzten Wert von Pi im GUI
     private void updateGUIpi(Double newValue) {
         Platform.runLater(() -> {
-            view.lblPi.setText("Aktuelle Schätzung von \u03C0 = " + Double.toString((Double) newValue));
+            view.lblPi.setText("Aktuelle Sch\u00e4tzung von \u03C0 = " + Double.toString((Double) newValue));
         });
     }
     

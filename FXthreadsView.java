@@ -63,11 +63,11 @@ public class FXthreadsView {
 		lblNumberFalse.setId("lblNumberFalse");
 		
 		lblPi = new Label();
-		lblPi.setText("Aktuelle Schätzung von \u03C0 = " + Double.toString(model.getValue().get()));
+		lblPi.setText("Aktuelle Sch\u00e4tzung von \u03C0 = " + Double.toString(model.getValue().get()));
 		lblPi.setId("lblPi");
 		
 		lblText = new Label();
-		lblText.setText("Letzte zufällig generierte Koordinaten:");
+		lblText.setText("Letzte zuf\u00e4llig generierte Koordinaten:");
 		lblText.setId("lblText");
 		
 		btnClick = new Button();
@@ -77,7 +77,7 @@ public class FXthreadsView {
 		vbox.setSpacing(10);
 		vbox.getChildren().addAll(btnClick, lblText, lblx, lbly, lblNumber, lblNumberTrue, lblNumberFalse, lblPi);
 		vbox.setPadding(new Insets(100, 50, 10, 50));
-		vbox.setMinWidth(400);
+		vbox.setMinWidth(500);
 		
 		xAxis = new NumberAxis(0, 1, 0.01);
 		yAxis = new NumberAxis(0, 1, 0.01);
@@ -103,7 +103,7 @@ public class FXthreadsView {
 		
 		scatterChart.getData().addAll(series1,series2);
 
-		Scene scene = new Scene(root, 1080, 725);
+		Scene scene = new Scene(root, 1180, 725);
 		scene.getStylesheets().add("Style.css");
 		stage.setScene(scene);;
 	}
